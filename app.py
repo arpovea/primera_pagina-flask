@@ -5,8 +5,9 @@ app = Flask(__name__)
 def inicio():
 	return render_template("principal.html")
 
-@app.route('/potencia/<int:base>/<int:exponente>',methods=["GET","POST"])
+@app.route('/potencia/<int:base>/<exponente>',methods=["GET","POST"])
 def potencia(base,exponente):
+	exponente=int(exponente)
 	if exponente >= 1:
 		resultado=base**exponente
 	elif exponente == 0:
