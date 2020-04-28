@@ -24,7 +24,7 @@ def cuenta_letra_palabra(palabra,letra):
 		resultado=palabra.count(letra)
 	else:
 		abort(404)
-	return render_template("cuenta_letra.html",palabra=palabra,letra=letra,resultado=resultado)
+	return render_template("cuenta_letras.html",palabra=palabra,letra=letra,resultado=resultado)
 
 
 app.run(debug=True)
