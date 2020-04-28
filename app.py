@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route('/',methods=["GET","POST"])
 def inicio():
-	return render_template("inicio.html")
+	return render_template("principal.html")
 
 @app.route('/potencia/<int:base>/<int:exponente>',methods=["GET","POST"])
 def potencia(base,exponente):
