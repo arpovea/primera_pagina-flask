@@ -18,5 +18,13 @@ def potencia(base,exponente):
 		abort(404)
 	return render_template("potencia.html",base=base,exponente=exponente,resultado=resultado)
 
+@app.route('/cuenta/<palabra>/<letra>',methods=["GET","POST"])
+def cuenta_letra_palabra(palabra,letra):
+	if len(letra) == 1:
+		resultado=palabra.count(letra)
+	else:
+		abort(404)
+	return render_template("cuenta_letra.html",palabra=palabra,letra=letra,resultado=resultado)
+
 
 app.run(debug=True)
