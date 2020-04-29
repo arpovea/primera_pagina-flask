@@ -26,5 +26,17 @@ def cuenta_letra_palabra(palabra,letra):
 		abort(404)
 	return render_template("cuenta_letras.html",palabra=palabra,letra=letra,resultado=resultado)
 
+@app.route('/libro/<int:codigo>',methods=["GET","POST"])
+def libros(codigo):
+	from lxml import etree
+	doc=etree.parse('libros.xml')
+	codigos=doc.xpath('/biblioteca/libro/codigo/text()')
+	codigo=str(codigo)
+	if codigo in codigos:
+		titulo=doc.xpath('/biblioteca/libro[codigo=%s]/titulo/text()'%codigo)
+		autor=doc.xpath('/biblioteca/libro[codigo=%s]/autor/text()'%codigo)
+	else:
+		abort(404)
+	return render_template("libros.html",titulo=titulo[0],autor=autor[0])
 
 app.run(debug=True)
