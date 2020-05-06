@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template,abort
 app = Flask(__name__)	
 
@@ -38,5 +39,5 @@ def libros(codigo):
 	else:
 		abort(404)
 	return render_template("libros.html",titulo=titulo[0],autor=autor[0])
-
-app.run(debug=True)
+port=os.environ["PORT"]
+app.run('0.0.0.0', int(port), debug=True)
