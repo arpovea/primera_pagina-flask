@@ -40,4 +40,4 @@ def libros(codigo):
 		abort(404)
 	return render_template("libros.html",titulo=titulo[0],autor=autor[0])
 port=os.environ["PORT"]
-app.run('0.0.0.0', int(port), debug=True)
+app.run('0.0.0.0', int(port), debug=False)
